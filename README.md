@@ -59,3 +59,6 @@ Run the application:
 
 python main.py
 Open your browser and go to http://localhost:5000
+
+![image](https://github.com/user-attachments/assets/68cf0cb8-fe8f-44b6-8173-d1eb7e9e0d43)
+
