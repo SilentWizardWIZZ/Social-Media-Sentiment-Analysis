@@ -1,0 +1,135 @@
+{% extends 'layout.html' %}
+
+{% block title %}About - Social Media Sentiment Analysis{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <h1 class="mb-4">About This Tool</h1>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="mb-3">Social Media Sentiment Analysis</h2>
+                <p>
+                    This tool allows you to analyze the sentiment of social media posts, comments, and other text content.
+                    It uses natural language processing (NLP) to determine whether the text expresses a positive, negative, or neutral sentiment.
+                </p>
+                <p>
+                    By analyzing sentiment in social media content, you can:
+                </p>
+                <ul>
+                    <li>Monitor public opinion about your brand, products, or services</li>
+                    <li>Track sentiment changes over time</li>
+                    <li>Identify potential issues or opportunities in customer feedback</li>
+                    <li>Gauge the success of marketing campaigns or product launches</li>
+                    <li>Better understand your audience's emotions and reactions</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">How It Works</h5>
+            </div>
+            <div class="card-body">
+                <p>
+                    This tool uses multiple sentiment analysis techniques to provide a comprehensive analysis:
+                </p>
+                
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary-subtle">
+                                <h5 class="mb-0">VADER Sentiment Analysis</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <strong>VADER</strong> (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool specifically attuned to sentiments expressed in social media.
+                                </p>
+                                <p>
+                                    It considers:
+                                </p>
+                                <ul>
+                                    <li>Punctuation and capitalization</li>
+                                    <li>Emoticons and emojis</li>
+                                    <li>Intensifiers and modifiers</li>
+                                    <li>Negations and contractions</li>
+                                </ul>
+                                <p>
+                                    VADER provides component scores (positive, negative, neutral) and a compound score that ranges from -1 (extremely negative) to +1 (extremely positive).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary-subtle">
+                                <h5 class="mb-0">TextBlob Analysis</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <strong>TextBlob</strong> is a simplified text processing library that provides a simple API for common NLP tasks, including sentiment analysis.
+                                </p>
+                                <p>
+                                    TextBlob provides:
+                                </p>
+                                <ul>
+                                    <li>Polarity: A float value within the range [-1.0, 1.0] where -1.0 is very negative and 1.0 is very positive</li>
+                                    <li>Subjectivity: A float value within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is very subjective</li>
+                                </ul>
+                                <p>
+                                    TextBlob is particularly good at recognizing sentiment in longer, more complex text.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="mb-3">Consensus Analysis</h5>
+                <p>
+                    To provide the most accurate sentiment classification, we combine the results from both VADER and TextBlob using a consensus approach:
+                </p>
+                <ol>
+                    <li>If both analyzers agree on the sentiment, that consensus is used.</li>
+                    <li>If one analyzer finds neutral sentiment, the non-neutral opinion is prioritized.</li>
+                    <li>If they completely disagree (one positive, one negative), the analyzer with the stronger score is used.</li>
+                </ol>
+                <p>
+                    This combined approach provides more reliable sentiment analysis across a wider range of social media content than either method alone.
+                </p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Usage Tips</h5>
+            </div>
+            <div class="card-body">
+                <h5 class="mb-3">For Best Results:</h5>
+                <ol>
+                    <li>
+                        <strong>Use raw, unprocessed text:</strong> Copy and paste text directly from social media platforms without editing.
+                    </li>
+                    <li>
+                        <strong>Include context:</strong> Longer texts with more context tend to yield more accurate results.
+                    </li>
+                    <li>
+                        <strong>Consider sarcasm and irony:</strong> Be aware that sarcasm and irony can be difficult for automated sentiment analysis to detect.
+                    </li>
+                    <li>
+                        <strong>Review multiple scores:</strong> Look at both VADER and TextBlob results to get a more complete picture of sentiment.
+                    </li>
+                    <li>
+                        <strong>Use CSV upload for batch analysis:</strong> For analyzing multiple posts or comments, use the CSV upload feature.
+                    </li>
+                </ol>
+                
+                <div class="alert alert-info mt-4">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>Tip:</strong> For social media monitoring, analyze content regularly and track sentiment trends over time.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
